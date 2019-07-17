@@ -1,0 +1,83 @@
+package week2;
+
+import java.util.Scanner;
+
+public class KioskChange {
+
+	public static void main(String[] args) {
+		// 	figure out change in numbers of Quarters, Dimes, Nickels, Pennies
+		//	Due July 17, 2019 Claim Academy Lamar...................................status ok
+	/**
+		//	Modifier: 		public static
+		//	Return type: 	void
+		//	Method name: 	KioskChange
+		//	Parameters:		int purchasePrice, amountGiven
+		// 	Function changeMaker to figure out change in Dollars, Quarters, Dimes, Nickels, Pennies 	
+	*/
+		// Define and assign and input variables and print out to verify
+					Scanner in = new Scanner (System.in);
+					
+					System.out.println("Enter purchase price: "); double purchasePrice = in.nextDouble();				
+					
+					System.out.println("Enter $ amount given: ");
+					double amountGiven = in.nextDouble();
+					
+					System.out.println("Purchase Price: " + purchasePrice + " Amount Given: " +  amountGiven);
+					
+					in.close();
+					
+					int returnAmountCents = (int) (100 * ((amountGiven - purchasePrice)));
+					System.out.println("Return Change Due in cents: " + returnAmountCents);
+					System.out.println(" ");
+					
+		// Call Function to Return coin distribution quantities with status...........................
+					char status = changeMaker(returnAmountCents);
+					System.out.println(" ");
+					System.out.println("Thank You: " + status);
+				}
+
+	
+	//  Main ends here				
+	//...............................................................................................................................
+	//	Functions begin here
+	/**
+		//	Modifier: 		public static
+		//	Return type: 	char
+		//	Method name: 	changeMaker
+		//	Parameters:		int newReturnChangeF
+		// 	Function changeMaker to figure out change in Quarters, Dimes, Nickels, Pennies 	
+	*/
+				 public static char changeMaker(int newReturnChangeF) {
+					 	
+					// figure out calculated Quarters, Dimes, Nickels, Pennies and output number of each
+					 	
+					 	int dollars = 	(int) Math.round(newReturnChangeF / 100);
+					 	if (dollars != 0) {System.out.println("Number of dollars: " + dollars);}
+					 	
+					 	
+					 	newReturnChangeF = (newReturnChangeF - (dollars * 100));
+					 	int quarters = 	(int) Math.round(newReturnChangeF / 25);
+					 	if (quarters != 0) {System.out.println("Number of quarters: " + quarters);}
+
+	
+					 	newReturnChangeF = (newReturnChangeF - (quarters * 25));
+						int dimes = (int) Math.round(newReturnChangeF / 10);
+						if (dimes != 0) {System.out.println("Number of dimes: " + dimes);}
+						
+						
+						newReturnChangeF = (newReturnChangeF - (dimes * 10));
+						int nickels = (int) Math.round(newReturnChangeF / 5);
+						if (nickels != 0) {System.out.println("Number of nickels: " + nickels);}
+						
+						
+						newReturnChangeF = (newReturnChangeF - (nickels * 5));
+						int pennies = (int) newReturnChangeF;
+						if (pennies != 0) {System.out.println("Number of pennies: " + pennies);}
+					
+						
+					//	System.out.println("Quarters: " + quarters + "  Dimes: " + dimes + "  Nickels: " + nickels + "  Pennies: " + pennies);
+						char statusF = 'P';
+					 	return statusF;
+				 }
+
+}
